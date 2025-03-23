@@ -24,4 +24,5 @@ vulnerubilities (github has another feature for that)
 problems with the mod itself (e.g. an ingame error message pops up)
 problems with the official game server (https://alexplayrus1.pythonanywhere.com/multiplayer/)
 ```
-## please include an error log in issues if possible
+## if you are using the mod and not sure which one your problem falls under just report to gamebanana comments
+## please include an error log if possible (run the .exe in a command line and try to reproduce what causes the error to see)
