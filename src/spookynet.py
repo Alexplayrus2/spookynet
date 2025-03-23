@@ -13,6 +13,8 @@ delay = float(input("Enter request delay (recommended: 0 to 1) (float), if you d
 while True:
     try:
         file = open(pathlol + "p2data.ini", "w")
+    except:
+        pass
     try:
         contents = urllib.request.urlopen(serverurl + "get?name=SJM" + otherid).read()
         file.write(contents.decode('utf-8').replace("ENTERSPACE", "\n"))
@@ -24,6 +26,8 @@ while True:
     try:
         file = open(pathlol + "p1data.ini", "r")
         fcontent = file.read()
+    except:
+        pass
     try:
         contents = urllib.request.urlopen(serverurl + "set?name=SJM" + selfid + "&val=" + fcontent.replace("\n", "ENTERSPACE")).read()
         print("Set request success!")
