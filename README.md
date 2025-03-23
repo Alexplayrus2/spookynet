@@ -11,17 +11,17 @@ build
 ```
 ### executable should be located at /src/build/dist/spookynet.exe
 
-# what to report via issues
+## what to report via issues
 
 ```
 problems with spookynet
 problems with hosting the webserver
 ```
 
-# what not to report via issues
+## what not to report via issues
 ```
 vulnerubilities (github has another feature for that)
 problems with the mod itself (e.g. an ingame error message pops up)
 problems with the official game server (https://alexplayrus1.pythonanywhere.com/multiplayer/)
 ```
-# please include an error log in issues if possible
+## please include an error log in issues if possible
