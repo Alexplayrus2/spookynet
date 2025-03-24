@@ -1,2 +1,5 @@
+v1.0.1 - 24.03.2025
+quick fix update
+
 made .ini files reset when joining someone
 optimization fix by fixing them turning blank at random times ( i forgot to use file.close() that time )
