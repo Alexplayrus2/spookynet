@@ -10,6 +10,22 @@ selfid = str(random.randrange(0,10000))
 print("Welcome to SpookyNet! Your ID is " + selfid)
 otherid = input("Enter the ID of the person you want to join: ")
 delay = float(input("Enter request delay (recommended: 0 to 1) (float), if you dont see other players and get alot of request errors then raise it, however it will make you laggier, you can set it to 0 if ur using a custom server): "))
+f1 = open(pathlol + "p1data.ini", "w")
+f1.write("""[player]
+xpos=0
+ypos=0
+room=0
+score=-1
+""")
+f1.close()
+f2 = open(pathlol + "p2data.ini", "w")
+f2.write("""[player]
+xpos=0
+ypos=0
+room=0
+score=-1
+""")
+f2.close()
 while True:
     try:
         file = open(pathlol + "p2data.ini", "w")
@@ -18,6 +34,7 @@ while True:
     try:
         contents = urllib.request.urlopen(serverurl + "get?name=SJM" + otherid).read()
         file.write(contents.decode('utf-8').replace("ENTERSPACE", "\n"))
+        file.close()
         print("Get request success!")
     except Exception as e:
         print("Get request error! " + str(e) + ", see below for extra details")
@@ -26,6 +43,7 @@ while True:
     try:
         file = open(pathlol + "p1data.ini", "r")
         fcontent = file.read()
+        file.close()
     except:
         pass
     try:
