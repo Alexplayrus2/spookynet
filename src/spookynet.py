@@ -1,3 +1,4 @@
+
 import urllib.request
 import random
 import os
@@ -28,29 +29,27 @@ score=-1
 f2.close()
 while True:
     try:
-        file = open(pathlol + "p2data.ini", "w")
-    except:
-        pass
-    try:
-        contents = urllib.request.urlopen(serverurl + "get?name=SJM" + otherid).read()
-        file.write(contents.decode('utf-8').replace("ENTERSPACE", "\n"))
-        file.close()
-        print("Get request success!")
-    except Exception as e:
-        print("Get request error! " + str(e) + ", see below for extra details")
-        logging.exception("GetReqException")
-    time.sleep(delay)
-    try:
         file = open(pathlol + "p1data.ini", "r")
         fcontent = file.read()
         file.close()
     except:
         pass
     try:
-        contents = urllib.request.urlopen(serverurl + "set?name=SJM" + selfid + "&val=" + fcontent.replace("\n", "ENTERSPACE")).read()
+        contents = urllib.request.urlopen(serverurl + "setandget?name=SJM" + selfid + "&val=" + fcontent.replace("\n", "ENTERSPACE") + "&getname=SJM" + otherid).read()
         print("Set request success!")
     except Exception as e:
         print("Set request error! " + str(e) + ", see below for extra details")
         logging.exception("SetReqException")
-    
+    time.sleep(delay)
+    try:
+        file = open(pathlol + "p2data.ini", "w")
+    except:
+        pass
+    try:
+        file.write(contents.decode('utf-8').replace("ENTERSPACE", "\n"))
+        file.close()
+        print("Get request success!")
+    except Exception as e:
+        print("Get request error! " + str(e) + ", see below for extra details")
+        logging.exception("GetReqException")
     time.sleep(delay)
