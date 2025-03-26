@@ -19,3 +19,12 @@ def mpget():
     global mpdata
     data = json.loads(mpdata)
     return data[request.args.get('name')]
+
+@app.route("/multiplayer/setandget")
+def mpsetget():
+    global mpdata
+    data = json.loads(mpdata)
+    data[request.args.get('name')] = request.args.get('val')
+    mpdata = json.dumps(data)
+    data = json.loads(mpdata)
+    return data[request.args.get('getname')]
